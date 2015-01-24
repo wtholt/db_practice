@@ -1,0 +1,15 @@
+<h1>Leagues</h1>
+
+<%= link_to "New League", new_league_path %>
+<br>
+<% @leagues.each do |league| %>
+  <%= link_to "View League", league_path(league) %>
+  <%= league.name %>
+  <%= league.country %>
+  <%= league.founded %>
+  <%= league.teams %>
+  <%= league.champion %>
+  <%= link_to "Edit League", edit_league_path(league) %>
+  <%= link_to "Delete League", league_path(league), method: :delete %>
+  <br>
+<% end %>

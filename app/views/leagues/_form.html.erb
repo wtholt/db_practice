@@ -1,0 +1,18 @@
+<%= form_for @league do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :country %>
+  <%= f.text_field :country %>
+  <br>
+  <%= f.label :founded %>
+  <%= f.date_select :founded, :start_year => 1850, :end_year => Date.today.year %>
+  <br>
+  <%= f.label :teams %>
+  <%= f.text_field :teams %>
+  <br>
+  <%= f.label :champion %>
+  <%= f.text_field :champion %>
+  <br>
+  <%= f.submit %>
+<% end %>

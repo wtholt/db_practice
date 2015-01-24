@@ -2,14 +2,15 @@
 
 <%= link_to "New League", new_league_path %>
 <br>
-<% @leagues.each do |league| %>
-  <%= link_to "View League", league_path(league) %>
-  <%= league.name %>
-  <%= league.country %>
-  <%= league.founded %>
-  <%= league.teams %>
-  <%= league.champion %>
-  <%= link_to "Edit League", edit_league_path(league) %>
-  <%= link_to "Delete League", league_path(league), method: :delete %>
-  <br>
-<% end %>
+<ul>
+  <% @leagues.each do |league| %>
+    <li><%= link_to "View League", league_path(league) %></li>
+    <li><%= league.name %></li>
+    <li><%= league.country %></li>
+    <li><%= league.founded %></li>
+    <li><%= league.champion %></li>
+    <li><%= link_to "Edit League", edit_league_path(league) %></li>
+    <li><%= link_to "Delete League", league_path(league), method: :delete %></li>
+    <br>
+  <% end %>
+</ul>

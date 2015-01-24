@@ -1,15 +1,15 @@
-<%= form_for(@league) do |f| %>
+<%= form_for [@league, @team] do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
-  <br>
-  <%= f.label :country %>
-  <%= f.text_field :country %>
   <br>
   <%= f.label :founded %>
   <%= f.date_select :founded, :start_year => 1850, :end_year => Date.today.year %>
   <br>
-  <%= f.label :champion %>
-  <%= f.text_field :champion %>
+  <%= f.label :ground %>
+  <%= f.text_field :ground %>
+  <br>
+  <%= f.label :coach %>
+  <%= f.text_field :coach %>
   <br>
   <%= f.submit %>
 <% end %>

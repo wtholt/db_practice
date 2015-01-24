@@ -1,3 +1,21 @@
 <h1>Teams</h1>
 
 <%= link_to "New Team", new_team_path %>
+<br>
+<% @teams.each do |team| %>
+  <br>
+  <%= link_to "View Team Info", team_path(team) %>
+  <br>
+  <%= team.name %>
+  <br>
+  <%= team.founded %>
+  <br>
+  <%= team.ground %>
+  <br>
+  <%= team.coach %>
+  <br>
+  <%= link_to "Edit Team", edit_team_path(team) %>
+  <br>
+  <%= link_to "Delete Team", team_path(team), method: :delete %>
+  <br>
+<% end %>

@@ -1,13 +1,25 @@
 <h1>League Info</h1>
-
+<br>
 <%= @league.name %>
 <br>
 <%= @league.country %>
 <br>
 <%= @league.founded %>
 <br>
-<%= @league.teams %>
-<br>
 <%= @league.champion %>
+<br>
 
+<%= link_to "Add Team", new_league_team_path(@league) %>
+<ul>
+  <%= @teams.each do |team| %>
+    <li><%= team.name %></li>
+    <li><%= team.founded %></li>
+    <li><%= team.ground %></li>
+    <li><%= team.coach %></li>
+    <li><%= link_to "View Team Info", league_team_path(@league, team) %></li>
+    <li><%= link_to "Edit Team", edit_league_team_path(@league, team) %></li>
+    <li><%= link_to "Delete", league_team_path(@league, team), method: :delete, data: {confirm: "Are you sure you want to delete record?"} %></li>
+  <% end %>
+</ul>
+<br>
 <%= link_to "Home", root_path %>

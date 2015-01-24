@@ -1,6 +1,7 @@
 class LeaguesController < ApplicationController
   def show
     @league = League.find params[:id]
+    @teams = @league.teams
   end
 
   def new
@@ -39,3 +40,8 @@ private
       )
   end
 end
+
+private
+  def set_league
+    @league = League.find(params[:id])
+  end

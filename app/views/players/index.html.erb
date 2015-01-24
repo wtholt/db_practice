@@ -1,0 +1,21 @@
+<h1>Players</h1>
+
+<%= link_to "New Player", new_player_path %>
+<br>
+<% @players.each do |player| %>
+  <br>
+  <%= link_to "View Player Info", player_path(player) %>
+  <br>
+  <%= player.name %>
+  <br>
+  <%= player.dob %>
+  <br>
+  <%= player.nationality %>
+  <br>
+  <%= player.position %>
+  <br>
+  <%= link_to "Edit Player", edit_player_path(player) %>
+  <br>
+  <%= link_to "Delete Player", player_path(player), method: :delete %>
+  <br>
+<% end %>

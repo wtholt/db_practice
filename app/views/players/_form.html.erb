@@ -1,0 +1,15 @@
+<%= form_for @player do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :dob %>
+  <%= f.date_select :dob, :start_year => 1950, :end_year => Date.today.year %>
+  <br>
+  <%= f.label :nationality %>
+  <%= f.text_field :nationality %>
+  <br>
+  <%= f.label :position %>
+  <%= f.select :position, options_for_select(Player::POSITIONS, f.object.position) %>
+  <br>
+  <%= f.submit %>
+<% end %>

@@ -4,6 +4,7 @@ class TeamsController < ApplicationController
   end
 
   def show
+    @league = League.find params[:league_id]
     @team = Team.find params[:id]
   end
 

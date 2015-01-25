@@ -1,11 +1,18 @@
 <h1>Team Info</h1>
 
-<%= @team.name %>
+Name: <%= @team.name %>
 <br>
-<%= @team.founded %>
+Founded: <%= @team.founded %>
 <br>
-<%= @team.ground %>
+Ground: <%= @team.ground %>
 <br>
-<%= @team.coach %>
+Manager: <%= @team.coach %>
 <br>
 <%= link_to "Add Player to Team", new_league_team_player_path(@league, @team) %>
+<br>
+<%= link_to "View Players", league_team_players_path(@league, @team) %>
+<br>
+<%= link_to "Edit Team", edit_league_team_path(@league, @team) %>
+<br>
+<%= link_to "Delete", league_team_path(@league, @team), method: :delete, data: {confirm: "Are you sure you want to delete record?"} %>
+

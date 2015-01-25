@@ -28,7 +28,7 @@ class TeamsController < ApplicationController
     @league = League.find params[:league_id]
     @team = Team.find params[:id]
     @team.update_attributes team_params
-    redirect_to @league
+    redirect_to league_team_path(@league, team)
   end
 
   def destroy

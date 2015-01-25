@@ -1,35 +1,49 @@
 class PlayersController < ApplicationController
   def index
-    @players = Player.all
+    @league = League.find params[:league_id]
+    @team = @league.teams.find params[:team_id]
+    @players = @team.players
   end
 
   def show
-    @player = Player.find params[:id]
+    @league = League.find params[:league_id]
+    @team = @league.teams.find params[:team_id]
+    @player = @team.players.find params[:id]
   end
 
   def new
-    @player = Player.new
+    @league = League.find params[:league_id]
+    @team = @league.teams.find params[:team_id]
+    @player = @team.players.new
   end
 
   def create
-    @player = Player.create player_params
-    redirect_to players_path
+    @league = League.find params[:league_id]
+    @team = @league.teams.find params[:team_id]
+    @player = @team.players.create player_params
+    redirect_to league_team_players_path(@league, @team)
   end
 
   def edit
-    @player = Player.find params[:id]
+    @league = League.find params[:league_id]
+    @team = @league.teams.find params[:team_id]
+    @player = @team.players.find params[:id]
   end
 
   def update
-    @player = Player.find params[:id]
+    @league = League.find params[:league_id]
+    @team = @league.teams.find params[:team_id]
+    @player = @team.players.find params[:id]
     @player.update_attributes player_params
-    redirect_to players_pathb
+    redirect_to league_team_players_path(@league, @team)
   end
 
   def destroy
-    @player = Player.find params[:id]
-    @player.destroy
-    redirect_to players_path
+    @league = League.find params[:league_id]
+    @team = @league.teams.find params[:team_id]
+    @player = @team.players.find params[:id]
+    @player.delete
+    redirect_to league_team_players_path(@league, @team)
   end
 
 private

@@ -1,10 +1,10 @@
 <h1>Players</h1>
 
-<%= link_to "New Player", new_player_path %>
+<%= link_to "New Player", new_league_team_player_path(@league, @team) %>
 <br>
 <% @players.each do |player| %>
   <br>
-  <%= link_to "View Player Info", player_path(player) %>
+  <%= link_to "View Player Info", league_team_player_path(@league, @team, player) %>
   <br>
   <%= player.name %>
   <br>
@@ -14,8 +14,8 @@
   <br>
   <%= player.position %>
   <br>
-  <%= link_to "Edit Player", edit_player_path(player) %>
+  <%= link_to "Edit Player", edit_league_team_player_path(@league, @team, player) %>
   <br>
-  <%= link_to "Delete Player", player_path(player), method: :delete %>
+  <%= link_to "Delete Player", league_team_player_path(@league, @team, player), method: :delete %>
   <br>
 <% end %>
